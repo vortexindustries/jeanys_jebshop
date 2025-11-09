@@ -58,31 +58,13 @@ p{
 .col-2{
     flex-basis: 50%;
     min-width: 300px;
-    position: relative;
 }
 
 .col-2 img{
     max-width: 100%;
     padding: 50px 0;
-    transition: opacity 0.5s ease-in-out;
 }
 
-.col-2 .img2{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    opacity: 0;
-}
-
-.col-2:hover .img2{
-    opacity:1;
-}
-
-.col-2:hover .img1{
-    opacity:0;
-}
 
 
 .col-2 h1{
