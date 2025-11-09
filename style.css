@@ -122,3 +122,21 @@ p{
     margin-top: 70px;
 }
 
+.categories{
+    margin: 70px 0;
+}
+
+.col-3{
+    flex: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+.col-3 img{
+    width: 90%;
+}
+
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+}
