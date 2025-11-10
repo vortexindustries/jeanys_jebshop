@@ -62,8 +62,9 @@ p{
 }
 
 .col-2 img{
-    max-width: 100%;
+    max-width: 90%;
     padding: 50px 0;
+    margin-left: 20px;
     transition: opacity 0.5s ease-in-out; 
     display: block;
 }
@@ -217,6 +218,88 @@ ul{
     width: 40px;
     margin-left: 20px;
     display: none;
+}
+
+/*all products*/
+
+.col-4{
+    flex-basis: 25%;
+    padding:10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+}
+
+.title{
+    font-size:80px;
+    text-align: center;
+    margin: 0 auto 80px;
+    padding: 20px;
+    position: relative;
+    line-height: 60px;
+    color: #000000;
+}
+
+.title::after{
+    content: '';
+    background: #ff523b;
+    width: 200px;
+    height: 5px;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.col-4 img{
+    width: 100%;
+}
+
+h4{
+    color: #555;
+    font-weight: normal;
+    font-size: 30px;
+}
+.col-4 p{
+    font-size: 20px;
+}
+.col-4:hover{
+    transform:scale(105%);
+}
+
+.row-2{
+    justify-content: space-between;
+    margin: 100px auto
+}
+
+select{
+    border: 2px solid #ff1e00;
+    padding: 5px;
+}
+select:focus{
+    outline: none;
+}
+
+.page-btn{
+    margin: 0 auto 80px;
+    font-size: 25px;
+}
+
+.page-btn span{
+    display: inline-block;
+    border: 1px solid #ff523b;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+.page-btn span:hover{
+    background: #ff523b;
+    color: #fff;
 }
 
 /*media query for menu*/
