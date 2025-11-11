@@ -151,7 +151,6 @@ p{
     color: #8a8a8a;
     font-size: 20px;
     padding: 60px 0 20px;
-
 }
 
 .footer p{
@@ -302,6 +301,66 @@ select:focus{
     color: #fff;
 }
 
+
+/*single product details*/
+
+.single-product .col-2 img{
+    padding:0;
+}
+
+.single-product .col-2{
+    padding: 20px;
+}
+
+.single-product h4{
+    margin: 20px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.single-product h3{
+    font-size: 25px;
+}
+
+.single-product p{
+    font-size: 20px;
+}
+
+.single-product select{
+    display: block;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.single-product input{
+    width:50px;
+    height:40px;
+    padding-left:10px;
+    font-size: 20px;
+    margin-right: 10px;
+    border: 1px solid #ff523b;
+}
+
+input:focus{
+    outline:none;
+}
+
+.small-img-row{
+    display: flex;
+}
+
+.small-img-col{
+    margin-top: 8px;
+    flex-basis: 23.1%;
+    cursor: pointer;
+}
+
+.small-container .row-2{
+    margin-left:15px;
+    margin-bottom:20px;
+}
+
+
 /*media query for menu*/
 
 @media only screen and (max-width: 950px){
@@ -338,4 +397,14 @@ select:focus{
     .col-2, .col-3{
         flex-basis: 100%;
     }
+
+    .single-product .row{
+        text-align: left;
+    }
+
+    .single-product h1{
+        font-size: 40px;
+        line-height: 32px;
+    }
+
 }
