@@ -9,38 +9,37 @@
 </head>
 
 <body>
-
-    <div class="header">
-
-    
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <img src="img/logo.png" width="125px" alt="">
-            </div>
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Products</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-            </nav>
-            <img src="img/cart.png" width="40px" height="40px">
-            <img src="img/menu.png" class="menu-icon" onclick="menutoggle()">
+    <section id="header">
+        <a href="index.html"><img src="img/logo.png" width="125px" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><img src="img/cart.png" width="40px" height="40px"></a></li>
+                <a href="#" id="close">X</a>
+            </ul>
         </div>
-        <div class="row">
-            <div class="col-2">
-                <h1>JEANY'S WACKY<br>ART CORNER :)</h1>
-                <p>dings dings dings dings dings dings dings dings dings<br>dings dings dings dings dings dings dings dings dings</p>
-                <a href="" class="btn">Take a look &#8594;</a>
-            </div>
-            <div class="col-2">
-                <img src="img/titlescreen2.png" class="img1">
-                <img src="img/titlescreen.png" class="img2">
+        <div id="mobile">
+            <a href="cart.html"><img src="img/cart.png" width="40px" height="40px"></a>
+            <a href="#"class="menu-icon"><img src="img/menu.png"></a>
+        </div>
+    </section>
+    <div class="frontpage">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <h1>JEANY'S WACKY<br>ART CORNER :)</h1>
+                    <p>dings dings dings dings dings dings dings dings dings<br>dings dings dings dings dings dings dings dings dings</p>
+                    <a href="products.html" class="btn">Take a look &#8594;</a>
+                </div>
+                <div class="col-2">
+                    <img src="img/titlescreen2.png" class="img1">
+                    <img src="img/titlescreen.png" class="img2">
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!--featured categories--> 
@@ -80,18 +79,20 @@
                     <h2>Links</h2>
                     <ul>
                         <li>
-                            <img src="img/insta.png">
-                            <p>Instagram</p>
+                            <a href="https://www.instagram.com/jeanyoseyffert.art/" target="_blank"><img src="img/insta.png"></a>
+                            <a href="https://www.instagram.com/jeanyoseyffert.art/" target="_blank"><p>Instagram</p></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <!---js for menu toggle-->
+    <!---js for menu toggle
     <script>
         var MenuItems = document.getElementById("MenuItems");
+
         MenuItems.style.maxHeight = "0px";
+
         function menutoggle(){
             if(MenuItems.style.maxHeight == "0px"){
                 MenuItems.style.maxHeight = "310px";
@@ -100,7 +101,50 @@
             }
         }
     </script>
+    -->
 
+    <!---js for menu toggle-->
+    <script>
+    var bar = document.querySelector('.menu-icon');
+    var nav = document.getElementById('navbar');
+    var close = document.getElementById('close');
+
+    if (bar) {
+        bar.addEventListener('click', () => {
+            nav.classList.add('active');
+        });
+    }
+
+    // Close navbar when clicking outside it
+    document.addEventListener('click', function(e) {
+        const isClickInsideNav = nav.contains(e.target);
+        const isClickOnMenuIcon = bar.contains(e.target);
+
+        if (nav.classList.contains('active') && !isClickInsideNav && !isClickOnMenuIcon) {
+            nav.classList.remove('active');
+        }
+    });
+</script>
+
+    <!--navbar scroll-->
+    <script>
+    var lastScrollTop = 0;
+    var header = document.getElementById("header");
+
+    window.addEventListener("scroll", function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down → hide navbar
+            header.style.top = "-140px";
+        } else {
+            // Scrolling up → show navbar
+            header.style.top = "0";
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative values
+    });
+</script>
 </body>
 
 

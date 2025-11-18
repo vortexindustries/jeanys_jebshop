@@ -10,23 +10,23 @@
 
 <body>
 
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <img src="img/logo.png" width="125px" alt="">
-            </div>
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Products</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-            </nav>
-            <img src="img/cart.png" width="40px" height="40px">
-            <img src="img/menu.png" class="menu-icon" onclick="menutoggle()">
+    <section id="header">
+        <a href="index.html"><img src="img/logo.png" width="125px" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><img src="img/cart.png" width="40px" height="40px"></a></li>
+                <a href="#" id="close">X</a>
+            </ul>
         </div>
-    </div>
+        <div id="mobile">
+            <a href="cart.html"><img src="img/cart.png" width="40px" height="40px"></a>
+            <a href="#"class="menu-icon"><img src="img/menu.png"></a>
+        </div>
+    </section>
 
     <!---single product details-->
 
@@ -80,24 +80,24 @@
         
         <div class="row">
             <div class="col-4">
-                <img src="img/1.png">
-                <h4>Produkt 1</h4>
-                <p>Preis 1</p>
+                <img src="img/5.png">
+                <h4>Produkt 5</h4>
+                <p>Preis 5</p>
             </div>
             <div class="col-4">
-                <img src="img/2.png">
-                <h4>Produkt 2</h4>
-                <p>Preis 2</p>
+                <img src="img/6.png">
+                <h4>Produkt 6</h4>
+                <p>Preis 6</p>
             </div>
             <div class="col-4">
-                <img src="img/3.png">
-                <h4>Produkt 3</h4>
-                <p>Preis 3</p>
+                <img src="img/7.png">
+                <h4>Produkt 7</h4>
+                <p>Preis 7</p>
             </div>
             <div class="col-4">
-                <img src="img/4.png">
-                <h4>Produkt 4</h4>
-                <p>Preis 4</p>
+                <img src="img/8.png">
+                <h4>Produkt 8</h4>
+                <p>Preis 8</p>
             </div>
         </div>
     </div>    
@@ -125,8 +125,8 @@
                     <h2>Links</h2>
                     <ul>
                         <li>
-                            <img src="img/insta.png">
-                            <p>Instagram</p>
+                            <a href="https://www.instagram.com/jeanyoseyffert.art/" target="_blank"><img src="img/insta.png"></a>
+                            <a href="https://www.instagram.com/jeanyoseyffert.art/" target="_blank"><p>Instagram</p></a>
                         </li>
                     </ul>
                 </div>
@@ -136,18 +136,46 @@
 
     <!---js for menu toggle-->
     <script>
-        var MenuItems = document.getElementById("MenuItems");
+    var bar = document.querySelector('.menu-icon');
+    var nav = document.getElementById('navbar');
+    var close = document.getElementById('close');
 
-        MenuItems.style.maxHeight = "0px";
+    if (bar) {
+        bar.addEventListener('click', () => {
+            nav.classList.add('active');
+        });
+    }
 
-        function menutoggle(){
-            if(MenuItems.style.maxHeight == "0px"){
-                MenuItems.style.maxHeight = "310px";
-            }else{
-                MenuItems.style.maxHeight = "0px";
-            }
+    // Close navbar when clicking outside it
+    document.addEventListener('click', function(e) {
+        const isClickInsideNav = nav.contains(e.target);
+        const isClickOnMenuIcon = bar.contains(e.target);
+
+        if (nav.classList.contains('active') && !isClickInsideNav && !isClickOnMenuIcon) {
+            nav.classList.remove('active');
         }
-    </script>
+    });
+</script>
+
+    <!--navbar scroll-->
+    <script>
+    var lastScrollTop = 0;
+    var header = document.getElementById("header");
+
+    window.addEventListener("scroll", function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down → hide navbar
+            header.style.top = "-140px";
+        } else {
+            // Scrolling up → show navbar
+            header.style.top = "0";
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative values
+    });
+</script>
 
     <!--js for product gallery-->
     <script>
@@ -166,7 +194,7 @@
             ProductImg.src = SmallImg[3].src;
         }
     </script>
-
+    
 </body>
 
 

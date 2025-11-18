@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Jeany's Jebshop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="header">
+        <a href="index.html"><img src="img/logo.png" width="125px" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><img src="img/cart.png" width="40px" height="40px"></a></li>
+                <a href="#" id="close">X</a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><img src="img/cart.png" width="40px" height="40px"></a>
+            <a href="#"class="menu-icon"><img src="img/menu.png"></a>
+        </div>
+    </section>
+
+    <!--cart items details-->
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="img/buy-1.png" alt="">
+                        <div>
+                            <h4>Print 1</h4>
+                            <small>Price: 10,00€</small>
+                            <br>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>10,00€</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="img/buy-2.png" alt="">
+                        <div>
+                            <h4>Print 2</h4>
+                            <small>Price: 12,00€</small>
+                            <br>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>12,00€</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="img/buy-3.png" alt="">
+                        <div>
+                            <h4>Print 3</h4>
+                            <small>Price: 15,00€</small>
+                            <br>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>15,00€</td>
+            </tr>
+        </table>
+
+        <div class="total-price">
+
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>37,00€</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>5,00€</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>42,00€</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!---footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h2>Impressum</h2>
+                    <h3>Name</h3>
+                    <p>Straßenname</p>
+                    <p>Stadtname</p>
+                    <p>Deutschland</p>
+                    <h3>Kontakt</h3>
+                    <p>Mail</p>
+                </div>
+                <div class="footer-col-2">
+                    <img src="img/logowhite.png">
+                    <p>dings dings dings dings dings<br>dings dings dings dings dings</p>
+                </div>
+                <div class="footer-col-3">
+                    <h2>Links</h2>
+                    <ul>
+                        <li>
+                            <a href="https://www.instagram.com/jeanyoseyffert.art/" target="_blank"><img src="img/insta.png"></a>
+                            <a href="https://www.instagram.com/jeanyoseyffert.art/" target="_blank"><p>Instagram</p></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!---js for menu toggle-->
+    <script>
+    var bar = document.querySelector('.menu-icon');
+    var nav = document.getElementById('navbar');
+    var close = document.getElementById('close');
+
+    if (bar) {
+        bar.addEventListener('click', () => {
+            nav.classList.add('active');
+        });
+    }
+
+    // Close navbar when clicking outside it
+    document.addEventListener('click', function(e) {
+        const isClickInsideNav = nav.contains(e.target);
+        const isClickOnMenuIcon = bar.contains(e.target);
+
+        if (nav.classList.contains('active') && !isClickInsideNav && !isClickOnMenuIcon) {
+            nav.classList.remove('active');
+        }
+    });
+</script>
+
+    <!--navbar scroll-->
+    <script>
+    var lastScrollTop = 0;
+    var header = document.getElementById("header");
+
+    window.addEventListener("scroll", function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down → hide navbar
+            header.style.top = "-140px";
+        } else {
+            // Scrolling up → show navbar
+            header.style.top = "0";
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative values
+    });
+</script>
+</body>
+
+
+
+</html>

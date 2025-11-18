@@ -5,31 +5,44 @@
     box-sizing: border-box;
 }
 
-
 body {
     font-family: 'Caveat', cursive;
 }
 
-.navbar{
+#header{
     display: flex;
     align-items: center;
-    padding: 20px;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #f0f0f0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 999;
+    position: sticky;
+    top:0;
+    left:0;
+    
+    transition: top 0.3s ease;
+}
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-nav{
-    flex: 1;
-    text-align: right;
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
 }
 
-nav ul {
-    display: inline-block;
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+#navbar li a{
+    text-decoration: none;
     font-size: 40px;
+    font-weight: 600;
+}
+
+#mobile{
+    display:none;
+    align-items: center;
 }
 
 a{
@@ -100,6 +113,7 @@ p{
     margin: 25px 0;
 }
 
+
 .btn{
     display: inline-block;
     background: #ff523b;
@@ -114,13 +128,13 @@ p{
     background: #490606;
 }
 
-.header{
+.frontpage{
     width: 100%;
     background: radial-gradient(#ffffff, #e5baba);
 }
 
-.header .row{
-    margin-top: 70px;
+.frontpage .row{
+    margin-top: 0px;
 }
 
 .categories{
@@ -213,11 +227,7 @@ ul{
 }
 
 
-.menu-icon{
-    width: 40px;
-    margin-left: 20px;
-    display: none;
-}
+
 
 /*all products*/
 
@@ -360,14 +370,86 @@ input:focus{
     margin-bottom:20px;
 }
 
+/*cart items details*/
+
+.cart-page{
+    margin: 80px auto;
+}
+
+table{
+    width:100%;
+    border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+th{
+    text-align: left;
+    padding: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: #fff;
+    background: #000;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+td{
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+td a{
+    color: #ff523b;
+    font-size: 15px;
+}
+
+td img{
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.total-price{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.total-price table{
+    border-top: 3px solid #ff523b;
+    width: 100%;
+    max-width: 400px;
+}
+
+td:last-child{
+    text-align: right;
+}
+
+th:last-child{
+    text-align: right;
+}
+
+#close{
+    display: none;
+}
 
 /*media query for menu*/
 
 @media only screen and (max-width: 950px){
+    /*
     nav ul{
         position: absolute;
         z-index:9999;
-        top: 100px;
+        top: 140px;
         left: 0px;
         background: #333;
         width: 100%;
@@ -387,6 +469,46 @@ input:focus{
         display: block;
         cursor: pointer;
     }
+    */
+    #navbar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 120dvh;
+        width: 300px;
+        background-color: #f0f0f0;
+        box-shadow: 0 40px 60px rgba(0,0,0,0.2);
+        padding: 40px 0 0 10px;
+        transition: 0.3s;
+        z-index: 10000;
+    }
+
+    #navbar.active{
+        right:0px;
+    }
+
+    #navbar li{
+        margin-bottom: 25px;
+    }
+
+    #mobile{
+    display:flex;
+    align-items: center;
+    }
+    #mobile img{
+        margin-left: 20px;
+    }
+
+   
+    #lg-bag{
+        display: none;
+    }
+
+
 }
 
 /*media query for <600px screen size*/
@@ -406,5 +528,7 @@ input:focus{
         font-size: 40px;
         line-height: 32px;
     }
-
+    .cart-info h4{
+        display: none;
+    }
 }
