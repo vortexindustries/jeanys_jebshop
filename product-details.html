@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Jeany's Jebshop</title>
+    <title>Product Details - Jeany's Jebshop</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,7 +18,7 @@
                 <li><a href="products.html">Products</a></li>
                 <li><a href="">About</a></li>
                 <li><a href="">Contact</a></li>
-                <li id="lg-bag"><a href="cart.html"><img src="img/cart.png" width="40px" height="40px"></a></li>
+                <li id="lg-bag"><a href="cart.html"><img src="img/cart.png" width="40px" height="40px"><span class="cart-item-count"></span></a></li>
                 <a href="#" id="close">X</a>
             </ul>
         </div>
@@ -30,77 +30,33 @@
 
     <!---single product details-->
 
-    <div class="small-container single-product">
-        <div class="row">
-            <div class="col-2">
-                <img src="img/gallery-1.png" width="100%" id="ProductImg">
+    <div class="product-detail">
+        <div class="product-img">
+            <div class="thumbnail-list">
+                <!-- <img src="img/gallery-1.png">
+                <img src="img/gallery-2.png">
+                <img src="img/gallery-3.png">
+                <img src="img/gallery-4.png"> -->
+            </div>
+            <div class="main-img">
+                <!-- <img src="img/gallery-1.png"> -->
+            </div>
+        </div>
 
-                <div class="small-img-row">
-                    <div class="small-img-col">
-                        <img src="img/gallery-1.png" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="img/gallery-2.png" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="img/gallery-3.png" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="img/gallery-4.png" width="100%" class="small-img">
-                    </div>
-                </div>
-            </div>
-            <div class="col-2">
-                <p>Print</p>
-                <h1>Print 1 Name</h1>
-                <h4>Preis</h4>
-                <select>
-                    <option>Select Dimensions</option>
-                    <option>1 x 1</option>
-                    <option>2 x 2</option>
-                    <option>3 x 3</option>
-                </select>
-                <input type="number" value="1">
-                <a href="" class="btn">Add to cart</a>
-                <h3>Product Details</h3>
-                <p>This print has been created through unethical labor practices involving children.</p>
-            </div>
+        <div class="procuct-info">
+            <h2 class="category"></h2>
+            <h1 class="title"></h1>
+            <span class="price"></span>
+            <h3 class="dimensions"></h3>
+            <p class="description"></p>
+            <label for="amount" class="amount">Amount: </label>
+            <input id="amount" class="input-amount" type="number" value="1" min="1">
+            <br>
+            <button class="btn" id="add-cart-btn">Add to Cart</button>
         </div>
     </div>
 
-    <!--title-->
-    <div class="small-container">
-        <div class="row row-2">
-            <h2>Related Products</h2>
-        </div>
-    </div>
-
-    <!---products-->
-    <div class="small-container">
-        
-        <div class="row">
-            <div class="col-4">
-                <img src="img/5.png">
-                <h4>Produkt 5</h4>
-                <p>Preis 5</p>
-            </div>
-            <div class="col-4">
-                <img src="img/6.png">
-                <h4>Produkt 6</h4>
-                <p>Preis 6</p>
-            </div>
-            <div class="col-4">
-                <img src="img/7.png">
-                <h4>Produkt 7</h4>
-                <p>Preis 7</p>
-            </div>
-            <div class="col-4">
-                <img src="img/8.png">
-                <h4>Produkt 8</h4>
-                <p>Preis 8</p>
-            </div>
-        </div>
-    </div>    
+    
 
         
     
@@ -194,7 +150,8 @@
             ProductImg.src = SmallImg[3].src;
         }
     </script>
-    
+    <script src="products.js"></script>
+    <script src="script.js"></script>
 </body>
 
 
