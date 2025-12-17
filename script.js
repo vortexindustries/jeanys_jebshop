@@ -41,22 +41,23 @@ function displayProductDetail(){
     const descriptionE1 = document.querySelector(".description");
     const amount = document.querySelector(".amount");
     const input = document.querySelector(".input-amount");
-    const mainImageContainer = document.querySelector(".main-img");
+    const mainImageContainer = document.querySelector(".main-img-container");
     const thumbnailContainer = document.querySelector(".thumbnail-list");
     const addToCartBtn = document.querySelector("#add-cart-btn");
-
+    
     function updateProductDisplay(){
-        mainImageContainer.innerHTML = `<img src="${productData.mainImage}">`;
+        mainImageContainer.innerHTML = `<img src="${productData.mainImage}", class="main-img">`;
 
         thumbnailContainer.innerHTML = "";
         const allThumbnails = [productData.mainImage].concat(productData.thumbnails.slice(0,3));
         allThumbnails.forEach(thumb=> {
             const img = document.createElement("img");
             img.src = thumb;
+            img.className = "thumbnail"
             thumbnailContainer.appendChild(img);
 
             img.addEventListener("click", ()=> {
-                mainImageContainer.innerHTML = `<img src="${thumb}">`;
+                mainImageContainer.innerHTML = `<img src="${thumb}", class="main-img">`;
             });
         });
     }
@@ -137,10 +138,10 @@ function displayCart(){
                         </div>
                     </div>
                 </div>
-                <span class="price">${item.price}</span>
-                <div class="quantity"><input type="number" value="${item.quantity}" min="1" data-index="${index}"></div>
-                <span class="total-price">${itemTotal}€</span>
-                <button class="remove" data-index="${index}"><img src="img/delete.png"></img></button>
+                <span class="price" data-label="Price:">${item.price}</span>
+                <div class="quantity" data-label="Quantity:"><input type="number" value="${item.quantity}" min="1" data-index="${index}"></div>
+                <span class="total-price" data-label="Total:">${itemTotal}€</span>
+                <button class="remove" data-index="${index}" data-label="Remove"><img src="img/delete.png"></img></button>
         `;
 
         cartItemsContainer.appendChild(cartItem);
@@ -182,16 +183,16 @@ function updateCartQuantity() {
 function updateCartBadge(){
     const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
     const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-    const badge = document.querySelector(".cart-item-count");
+    const badges = document.querySelectorAll(".cart-item-count");
 
-    if (badge) {
-        if (cartCount >0) {
+    badges.forEach(badge => {
+        if (cartCount > 0) {
             badge.textContent = cartCount;
-            badge.style.display = "block";
-        }else{
+            badge.style.display = "flex";
+        } else {
             badge.style.display = "none";
         }
-    }
+    });
 }
 
 updateCartBadge();
